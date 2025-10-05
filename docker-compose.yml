@@ -1,0 +1,17 @@
+services:
+  kali:
+    build: .
+    container_name: kali
+    tty: true
+    stdin_open: true
+    networks:
+      - kali_net
+    volumes:
+      - ./data:/root/data
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+networks:
+  kali_net:
+    driver: bridge
